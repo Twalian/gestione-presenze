@@ -7,7 +7,7 @@ from uuid import uuid4
 
 def manage_courses(manager: Manager):
     while True:
-        UI.print_menu(["Aggiungi Corso", "Rimuovi Corso", "Aggiorna Stato Corso", "Lista Corsi"], "Gestione Corsi")
+        UI.print_menu(["Aggiungi un corso", "Rimuovi un corso", "Aggiorna lo stato di un corso", "Visualizza la lista dei corsi"], "Gestione Corsi")
         choice = UI.get_input("Scegli opzione")
 
         if choice == "0":
@@ -40,7 +40,7 @@ def manage_courses(manager: Manager):
 
 def manage_participants(manager: Manager):
     while True:
-        UI.print_menu(["Aggiungi alla lista globale", "Iscrizione al corso", "Lista di tutti i partecipanti"], "Gestione Partecipanti")
+        UI.print_menu(["Aggiungi un partecipante alla lista generale", "Iscrivi un partecipante a un corso", "Rimuovi un partecipante da corso", "Visualizza la lista di tutti i partecipanti"], "Gestione Partecipanti")
         choice = UI.get_input("Scegli opzione")
 
         if choice == "0":
@@ -64,14 +64,22 @@ def manage_participants(manager: Manager):
                 except ValueError as e:
                     UI.print_message(str(e), "error")
         elif choice == "3":
-            UI.print_participants_table(manager.participants)
+            course = UI.select_item(manager.courses, "Corso")
+            if course:
+                participants = manager.get_course_participants(course)
+                participant = UI.select_item(participants, "Partecipante")
+                if participant:
+                    manager.unenroll_participant(course, participant)
+                    UI.print_message("Partecipante rimosso con successo!", "success")
+        elif choice == "4":
+            UI.print_participants_table(manager.participants, manager.courses)
             UI.get_input("Premi invio per continuare")
         else:
              UI.print_message("Opzione non valida", "error")
 
 def manage_attendance(manager: Manager):
     while True:
-        UI.print_menu(["Registra/Modifica Presenze", "Visualizza Presenze Corso"], "Gestione Presenze")
+        UI.print_menu(["Registra/Modifica presenze", "Visualizza le presenze di un corso"], "Gestione Presenze")
         choice = UI.get_input("Scegli opzione")
 
         if choice == "0":

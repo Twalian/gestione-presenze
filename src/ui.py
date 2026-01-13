@@ -1,5 +1,5 @@
 import os
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Optional
 from src.models import Course, Participant
 
 class UI:
@@ -32,11 +32,19 @@ class UI:
             print(f"{c.id:<40} | {c.name:<20} | {c.status:<15} | {len(c.participant_ids)}")
 
     @staticmethod
-    def print_participants_table(participants: List[Participant]):
-        print(f"\n{'ID':<40} | {'Cognome':<20} | {'Nome':<20}")
-        print("-" * 80)
-        for p in participants:
-            print(f"{p.id:<40} | {p.last_name:<20} | {p.first_name:<20}")
+    def print_participants_table(participants: List[Participant], courses: Optional[List[Course]] = None):
+        if courses is None:
+            print(f"\n{'ID':<40} | {'Cognome':<20} | {'Nome':<20}")
+            print("-" * 80)
+            for p in participants:
+                print(f"{p.id:<40} | {p.last_name:<20} | {p.first_name:<20}")
+        else:
+            print(f"\n{'ID':<40} | {'Cognome':<20} | {'Nome':<20} | {'Corsi'}")
+            print("-" * 120)
+            for p in participants:
+                enrolled_courses = [c.name for c in courses if p.id in c.participant_ids]
+                courses_str = ", ".join(enrolled_courses) if enrolled_courses else "-"
+                print(f"{p.id:<40} | {p.last_name:<20} | {p.first_name:<20} | {courses_str}")
 
     @staticmethod
     def print_attendance_table(course: Course, participants: List[Participant], attendance_data: Dict[str, Dict[str, str]]):

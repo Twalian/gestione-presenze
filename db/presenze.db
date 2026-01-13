@@ -1,39 +1,21 @@
 {
     "courses": [
         {
-            "id": "MATH101",
-            "name": "Math 101",
+            "id": "9f96d104-ae8c-4f9e-80d0-0f9276cebe10",
+            "name": "Matematica",
             "participant_ids": [
-                "12345"
+                "39b51358-9db2-47c9-af32-5f543bb033a1",
+                "9a58167a-8288-4a8e-b191-ef5fa4892114"
             ],
             "status": "in corso",
             "dates": [
-                "2023-10-27",
+                "2026-01-12",
                 "2026-01-13"
             ]
         },
         {
-            "id": "9f96d104-ae8c-4f9e-80d0-0f9276cebe10",
-            "name": "Matematica",
-            "participant_ids": [],
-            "status": "da iniziare",
-            "dates": []
-        },
-        {
-            "id": "7208a3af-d246-45a3-8052-38729b8c7b72",
-            "name": "Storia",
-            "participant_ids": [
-                "39b51358-9db2-47c9-af32-5f543bb033a1",
-                "12345"
-            ],
-            "status": "da iniziare",
-            "dates": [
-                "2026-01-13"
-            ]
-        },
-        {
-            "id": "c48ffdd9-b4d9-49af-993f-53f8b0ee6d54",
-            "name": "Scienze",
+            "id": "f9be0274-dfbe-4dec-b763-7d8273b887d9",
+            "name": "Filosofia",
             "participant_ids": [
                 "39b51358-9db2-47c9-af32-5f543bb033a1"
             ],
@@ -43,29 +25,25 @@
     ],
     "participants": [
         {
-            "id": "12345",
-            "first_name": "Mario",
-            "last_name": "Rossi"
-        },
-        {
             "id": "39b51358-9db2-47c9-af32-5f543bb033a1",
             "first_name": "Pippo",
             "last_name": "Paperino"
+        },
+        {
+            "id": "9a58167a-8288-4a8e-b191-ef5fa4892114",
+            "first_name": "Minnie",
+            "last_name": "Paperina"
         }
     ],
     "attendance": {
-        "MATH101": {
-            "2023-10-27": {
-                "12345": "present"
+        "9f96d104-ae8c-4f9e-80d0-0f9276cebe10": {
+            "2026-01-12": {
+                "39b51358-9db2-47c9-af32-5f543bb033a1": "presente",
+                "9a58167a-8288-4a8e-b191-ef5fa4892114": "assente"
             },
             "2026-01-13": {
-                "12345": "assente"
-            }
-        },
-        "7208a3af-d246-45a3-8052-38729b8c7b72": {
-            "2026-01-13": {
-                "39b51358-9db2-47c9-af32-5f543bb033a1": "absent",
-                "12345": "present"
+                "39b51358-9db2-47c9-af32-5f543bb033a1": "presente",
+                "9a58167a-8288-4a8e-b191-ef5fa4892114": "presente"
             }
         }
     }

@@ -50,6 +50,26 @@ class Manager:
         else:
             raise ValueError("Participant already enrolled in this course.")
 
+    def unenroll_participant(self, course: Course, participant: Participant):
+        if participant.id in course.participant_ids:
+            course.participant_ids.remove(participant.id)
+            
+            if course.id in self.attendance:
+                for date in self.attendance[course.id]:
+                    if participant.id in self.attendance[course.id][date]:
+                        del self.attendance[course.id][date][participant.id]
+            
+            is_enrolled_elsewhere = any(
+                participant.id in c.participant_ids 
+                for c in self.courses 
+                if c.id != course.id
+            )
+            
+            if not is_enrolled_elsewhere:
+                self.participants.remove(participant)
+            
+            self.save_state()
+
     def get_course_participants(self, course: Course) -> List[Participant]:
         return [p for p in self.participants if p.id in course.participant_ids]
 
