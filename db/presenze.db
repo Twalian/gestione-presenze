@@ -1,0 +1,72 @@
+{
+    "courses": [
+        {
+            "id": "MATH101",
+            "name": "Math 101",
+            "participant_ids": [
+                "12345"
+            ],
+            "status": "in corso",
+            "dates": [
+                "2023-10-27",
+                "2026-01-13"
+            ]
+        },
+        {
+            "id": "9f96d104-ae8c-4f9e-80d0-0f9276cebe10",
+            "name": "Matematica",
+            "participant_ids": [],
+            "status": "da iniziare",
+            "dates": []
+        },
+        {
+            "id": "7208a3af-d246-45a3-8052-38729b8c7b72",
+            "name": "Storia",
+            "participant_ids": [
+                "39b51358-9db2-47c9-af32-5f543bb033a1",
+                "12345"
+            ],
+            "status": "da iniziare",
+            "dates": [
+                "2026-01-13"
+            ]
+        },
+        {
+            "id": "c48ffdd9-b4d9-49af-993f-53f8b0ee6d54",
+            "name": "Scienze",
+            "participant_ids": [
+                "39b51358-9db2-47c9-af32-5f543bb033a1"
+            ],
+            "status": "da iniziare",
+            "dates": []
+        }
+    ],
+    "participants": [
+        {
+            "id": "12345",
+            "first_name": "Mario",
+            "last_name": "Rossi"
+        },
+        {
+            "id": "39b51358-9db2-47c9-af32-5f543bb033a1",
+            "first_name": "Pippo",
+            "last_name": "Paperino"
+        }
+    ],
+    "attendance": {
+        "MATH101": {
+            "2023-10-27": {
+                "12345": "present"
+            },
+            "2026-01-13": {
+                "12345": "assente"
+            }
+        },
+        "7208a3af-d246-45a3-8052-38729b8c7b72": {
+            "2026-01-13": {
+                "39b51358-9db2-47c9-af32-5f543bb033a1": "absent",
+                "12345": "present"
+            }
+        }
+    }
+}
